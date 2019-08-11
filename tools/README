@@ -1,0 +1,29 @@
+==============================================================================
+This file contains instructions for how to retrieve a Celeste Pico-8 cartridge
+and how to extract its relevant contents into a header file for easy inclusion
+in our project. For various legal reasons (probably) these extracted contents
+should not be checked into this repository.
+==============================================================================
+
+First get the cartridge:
+
+> wget https://www.lexaloffle.com/bbs/cposts/1/15133.p8.png
+
+Then install the Pico-8 cartridge manipulation python library:
+
+> git clone https://github.com/dansanderson/picotool.git
+> export PYTHONPATH=$PYTHONPATH:$PWD/picotool/ 
+
+And finally run the cartridge extractor:
+
+> ./cartextract.py 15133.p8.png > ../sw/cartridge.h
+
+The previous command my fail complaining that the 'pypng' library is missing in
+which case the following command sequence may be useful to install 'pypng' in a
+local virtual python environment:
+
+> sudo apt-get install python3-venv
+> python3 -m pip install --user virtualenv
+> python3 -m venv env
+> source env/bin/activate
+> pip install pypng

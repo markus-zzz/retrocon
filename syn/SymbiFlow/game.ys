@@ -1,0 +1,16 @@
+read_verilog \
+  ../../rtl/ulx3s/clk_25_250_125_25.v \
+  ../../rtl/ulx3s/fake_differential.v \
+  ../../rtl/ulx3s/tmds_encoder.v \
+  ../../rtl/ulx3s/ulx3s_game_top.v \
+  ../../rtl/ulx3s/vga2dvid.v \
+  ../../rtl/game_top.v \
+  ../../rtl/gfx.v \
+  ../../rtl/picorv32.v \
+  ../../rtl/vga_video.v \
+  ../../rtl/support/spram.v \
+  ../../rtl/support/sprom.v
+hierarchy -top ulx3s_game_top
+synth_ecp5 -top ulx3s_game_top
+hierarchy -top ulx3s_game_top -check -purge_lib
+write_json game.json
