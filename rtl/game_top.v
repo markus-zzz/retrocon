@@ -241,6 +241,7 @@ module game_top(clk, rst, vga_hsync_o, vga_vsync_o, vga_blank_o, vga_red_o, vga_
 
   sprom #(
     .aw(12),
+    .dw(32),
     .MEM_INIT_FILE("rom.vh")
   ) u_rom(
     .clk(clk),
@@ -253,6 +254,7 @@ module game_top(clk, rst, vga_hsync_o, vga_vsync_o, vga_blank_o, vga_red_o, vga_
 
 
   spram #(
+    .aw(10),
     .dw(8)
   ) u_ram_0(
     .clk(clk),
@@ -266,6 +268,7 @@ module game_top(clk, rst, vga_hsync_o, vga_vsync_o, vga_blank_o, vga_red_o, vga_
   );
 
   spram #(
+    .aw(10),
     .dw(8)
   ) u_ram_1(
     .clk(clk),
@@ -279,6 +282,7 @@ module game_top(clk, rst, vga_hsync_o, vga_vsync_o, vga_blank_o, vga_red_o, vga_
   );
 
   spram #(
+    .aw(10),
     .dw(8)
   ) u_ram_2(
     .clk(clk),
@@ -292,6 +296,7 @@ module game_top(clk, rst, vga_hsync_o, vga_vsync_o, vga_blank_o, vga_red_o, vga_
   );
 
   spram #(
+    .aw(10),
     .dw(8)
   ) u_ram_3(
     .clk(clk),
